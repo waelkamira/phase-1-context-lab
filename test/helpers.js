@@ -22,3 +22,13 @@ const src = babelResult.code
 jsdom({
   html, src
 });
+
+function allWagesFor() {
+  const dates = this.timeInEvents.map(event => event.date);
+  const totalWages = dates.reduce((sum, date) => sum + wagesEarnedOnDate.call(this, date), 0);
+  return totalWages;
+}
+
+function createEmployeeRecords(data) {
+  return data.map(row => createEmployeeRecord(row));
+}
